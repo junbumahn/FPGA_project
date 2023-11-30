@@ -1,0 +1,25 @@
+06:39:30 **** Build of configuration Debug for project blink_led_app ****
+make all 
+make --no-print-directory pre-build
+a9-linaro-pre-build-step
+' '
+make --no-print-directory main-build
+'Building file: ../src/main.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IC:/FPGA/practice_project/blink_led_project/blink_led_vitis/blink_led_bd_wrapper/export/blink_led_bd_wrapper/sw/blink_led_bd_wrapper/standalone_ps7_cortexa9_0/bspinclude/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+'Finished building: ../src/main.c'
+' '
+'Building target: blink_led_app.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -LC:/FPGA/practice_project/blink_led_project/blink_led_vitis/blink_led_bd_wrapper/export/blink_led_bd_wrapper/sw/blink_led_bd_wrapper/standalone_ps7_cortexa9_0/bsplib/lib -o "blink_led_app.elf"  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: blink_led_app.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size blink_led_app.elf  |tee "blink_led_app.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  18716	   1144	  22568	  42428	   a5bc	blink_led_app.elf
+'Finished building: blink_led_app.elf.size'
+' '
+
+06:39:31 Build Finished (took 1s.140ms)
+

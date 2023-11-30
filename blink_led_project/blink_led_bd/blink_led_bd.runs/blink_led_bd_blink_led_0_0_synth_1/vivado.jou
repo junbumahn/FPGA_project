@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2022.1 (64-bit)
+# SW Build 3526262 on Mon Apr 18 15:48:16 MDT 2022
+# IP Build 3524634 on Mon Apr 18 20:55:01 MDT 2022
+# Start of session at: Fri Dec  1 06:33:05 2023
+# Process ID: 19900
+# Current directory: C:/FPGA/practice_project/blink_led_project/blink_led_bd/blink_led_bd.runs/blink_led_bd_blink_led_0_0_synth_1
+# Command line: vivado.exe -log blink_led_bd_blink_led_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source blink_led_bd_blink_led_0_0.tcl
+# Log file: C:/FPGA/practice_project/blink_led_project/blink_led_bd/blink_led_bd.runs/blink_led_bd_blink_led_0_0_synth_1/blink_led_bd_blink_led_0_0.vds
+# Journal file: C:/FPGA/practice_project/blink_led_project/blink_led_bd/blink_led_bd.runs/blink_led_bd_blink_led_0_0_synth_1\vivado.jou
+# Running On: DESKTOP-21LHLN4, OS: Windows, CPU Frequency: 3294 MHz, CPU Physical cores: 12, Host memory: 16542 MB
+#-----------------------------------------------------------
+source blink_led_bd_blink_led_0_0.tcl -notrace

@@ -1,0 +1,63 @@
+06:37:49 DEBUG : Logs will be stored at 'C:/FPGA/practice_project/blink_led_project/blink_led_vitis/IDE.log'.
+06:37:52 INFO  : Registering command handlers for Vitis TCF services
+06:37:52 INFO  : Launching XSCT server: xsct.bat -n  -interactive C:\FPGA\practice_project\blink_led_project\blink_led_vitis\temp_xsdb_launch_script.tcl
+06:37:52 INFO  : Platform repository initialization has completed.
+06:37:55 INFO  : XSCT server has started successfully.
+06:37:57 INFO  : Successfully done setting XSCT server connection channel  
+06:37:57 INFO  : plnx-install-location is set to ''
+06:37:57 INFO  : Successfully done query RDI_DATADIR 
+06:37:57 INFO  : Successfully done setting workspace for the tool. 
+06:38:44 INFO  : Result from executing command 'getProjects': blink_led_bd_wrapper
+06:38:44 INFO  : Result from executing command 'getPlatforms': 
+06:38:44 WARN  : An unexpected exception occurred in the module 'platform project logging'
+06:38:44 INFO  : Platform 'blink_led_bd_wrapper' is added to custom repositories.
+06:38:51 INFO  : Platform 'blink_led_bd_wrapper' is added to custom repositories.
+06:39:29 INFO  : Result from executing command 'getProjects': blink_led_bd_wrapper
+06:39:29 INFO  : Result from executing command 'getPlatforms': blink_led_bd_wrapper|C:/FPGA/practice_project/blink_led_project/blink_led_vitis/blink_led_bd_wrapper/export/blink_led_bd_wrapper/blink_led_bd_wrapper.xpfm
+06:39:30 INFO  : Checking for BSP changes to sync application flags for project 'blink_led_app'...
+06:39:52 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+06:39:53 INFO  : Jtag cable 'Digilent Zybo Z7 210351B7BBFCA' is selected.
+06:39:53 INFO  : 'jtag frequency' command is executed.
+06:39:53 INFO  : Context for 'APU' is selected.
+06:39:53 INFO  : System reset is completed.
+06:39:56 INFO  : 'after 3000' command is executed.
+06:39:56 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351B7BBFCA" && level==0 && jtag_device_ctx=="jsn-Zybo Z7-210351B7BBFCA-23727093-0"}' command is executed.
+06:39:59 INFO  : Device configured successfully with "C:/FPGA/practice_project/blink_led_project/blink_led_vitis/blink_led_app/_ide/bitstream/blink_led_bd_wrapper.bit"
+06:39:59 INFO  : Context for 'APU' is selected.
+06:39:59 INFO  : Hardware design and registers information is loaded from 'C:/FPGA/practice_project/blink_led_project/blink_led_vitis/blink_led_bd_wrapper/export/blink_led_bd_wrapper/hw/blink_led_bd_wrapper.xsa'.
+06:39:59 INFO  : 'configparams force-mem-access 1' command is executed.
+06:39:59 INFO  : Context for 'APU' is selected.
+06:39:59 INFO  : Sourcing of 'C:/FPGA/practice_project/blink_led_project/blink_led_vitis/blink_led_app/_ide/psinit/ps7_init.tcl' is done.
+06:39:59 INFO  : 'ps7_init' command is executed.
+06:39:59 INFO  : 'ps7_post_config' command is executed.
+06:39:59 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+06:39:59 INFO  : The application 'C:/FPGA/practice_project/blink_led_project/blink_led_vitis/blink_led_app/Debug/blink_led_app.elf' is downloaded to processor 'ps7_cortexa9_0'.
+06:39:59 INFO  : 'configparams force-mem-access 0' command is executed.
+06:39:59 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351B7BBFCA" && level==0 && jtag_device_ctx=="jsn-Zybo Z7-210351B7BBFCA-23727093-0"}
+fpga -file C:/FPGA/practice_project/blink_led_project/blink_led_vitis/blink_led_app/_ide/bitstream/blink_led_bd_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw C:/FPGA/practice_project/blink_led_project/blink_led_vitis/blink_led_bd_wrapper/export/blink_led_bd_wrapper/hw/blink_led_bd_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source C:/FPGA/practice_project/blink_led_project/blink_led_vitis/blink_led_app/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow C:/FPGA/practice_project/blink_led_project/blink_led_vitis/blink_led_app/Debug/blink_led_app.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+06:39:59 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+06:39:59 INFO  : 'con' command is executed.
+06:39:59 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+06:39:59 INFO  : Launch script is exported to file 'C:\FPGA\practice_project\blink_led_project\blink_led_vitis\blink_led_app_system\_ide\scripts\debugger_blink_led_app-default.tcl'
+06:43:38 INFO  : Disconnected from the channel tcfchan#2.
