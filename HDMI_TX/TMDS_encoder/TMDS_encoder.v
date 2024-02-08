@@ -72,6 +72,8 @@ module tmds_encoder (
         end
     end
 
+// D.C balanced coding: the number of "0" bits is always equal to that of "1" in a data stream
+
     always @ (posedge pixclk, posedge reset) begin
     if(reset) begin
         o_encode <= 0;
