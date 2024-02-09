@@ -6,3 +6,7 @@ The architecture includes...
   -  output module that produces differential output
 
 ![HDMI_TX_architecture](https://github.com/junbumahn/FPGA_project/assets/135052346/a8734194-c8d0-4987-9d51-29c869b5ef50)
+
+-------------------------------------------------------------------------------------------------------------------------------------
+encoder flow chat
+![encoder_flow_chart](https://github.com/junbumahn/FPGA_project/assets/135052346/5b5b79d3-0023-4442-8586-44c522fd238d)
