@@ -7,7 +7,7 @@ module TMDS_out (
    input i_pixclk,
 
    output [3:0] o_TMDS_P,
-   output [3:0] o_TMDS_N,
+   output [3:0] o_TMDS_N
 );
    
    //TMDS channel 0 differential out (blue)

@@ -4,7 +4,7 @@ module HDMI_TX_top (
     input [23:0] i_rgb_data     ,
     input i_hsync               ,
     input i_vsync               ,
-    input [3:0]i_ctrl = 4'b0    ,
+    input [3:0]i_ctrl     ,
     input i_de                  ,
 
     
@@ -12,6 +12,8 @@ module HDMI_TX_top (
     output [3:0]o_TMDS_N
 
 );
+
+assign i_ctrl = 4'b0000;
 
 wire [7:0] w_red = i_rgb_data[7:0];
 wire [7:0] w_green = i_rgb_data[15:8];
@@ -69,7 +71,7 @@ TMDS_out_inst(
     .i_red_serial   (w_red_serial),
     .i_pixclk       (i_pixclk), 
     .o_TMDS_P       (o_TMDS_P),
-    .o_TMDS_N       (o_TMDS_N),
+    .o_TMDS_N       (o_TMDS_N)
 );
     
 endmodule

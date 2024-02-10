@@ -21,7 +21,7 @@ blue_TMDS_Serializer_10_to_1 (
     .i_tmdsclk  (i_tmdsclk  ),
     .i_reset    (i_reset    ),
     .i_data     (i_blue_encode),
-    .o_serial   (o_blue_serial   ),
+    .o_serial   (o_blue_serial   )
 );
 
 //channel 1 (green) serializer
@@ -31,7 +31,7 @@ green_TMDS_Serializer_10_to_1 (
     .i_tmdsclk  (i_tmdsclk  ),
     .i_reset    (i_reset    ),
     .i_data     (i_green_encode),
-    .o_serial   (o_green_serial   ),
+    .o_serial   (o_green_serial   )
 );
 
 //channel 2 (red) serializer
@@ -41,7 +41,7 @@ red_TMDS_Serializer_10_to_1 (
     .i_tmdsclk  (i_tmdsclk  ),
     .i_reset    (i_reset    ),
     .i_data     (i_red_encode),
-    .o_serial   (o_red_serial   ),
+    .o_serial   (o_red_serial   )
 );
 
 
