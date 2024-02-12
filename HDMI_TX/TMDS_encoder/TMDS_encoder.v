@@ -1,6 +1,5 @@
 module tmds_encoder (
     input i_pixclk,
-    input i_reset,
 
     input i_de, //i_data enable
     input [7:0] i_data, //8bit pixel i_data 
@@ -109,22 +108,18 @@ module tmds_encoder (
         end else begin
             case (ctrl_pipe_2)
                 2'b00: q_out = 10'b1101010100;
-                2'b01: q_out = 10'b0010101010;
-                2'b10: q_out = 10'b1101010101;
-                default: q_out = 10'b0010101011;
+                2'b01: q_out = 10'b0010101011;
+                2'b10: q_out = 10'b0101010100;
+                default: q_out = 10'b1010101011;
             endcase
             cnt = 0;
         end
     end
 
 //sequential block: stage 3 pipeline
-    always @ (posedge i_pixclk, posedge i_reset) begin
-        if(i_reset) begin
-            o_encode <= 0;
-        end else begin
+    always @ (posedge i_pixclk) begin
             cnt_old <= cnt;
             o_encode <= q_out;
-        end
     end
   
 endmodule

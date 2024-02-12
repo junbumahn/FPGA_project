@@ -1,0 +1,11 @@
+things done:
+
+-update IP
+-test
+-update constraints
+
+need to do:
+
+-convert reset_n -> reset for HDMI_TX module
+-generate tmds clk and connect to HDMI_TX module
+-create test RGB color and debug

@@ -2,42 +2,66 @@
 
 module tb_serializer ();
 
-reg tmdsclk;
-reg pixclk;
-reg reset;
+reg i_tmdsclk;
+reg i_pixclk;
+reg i_reset;
 
-reg [9:0] data;
+reg [9:0] i_blue_encode;
+reg [9:0] i_green_encode;
+reg [9:0] i_red_encode; 
 
-wire serial;
+wire o_blue_serial;
+wire o_green_serial;
+wire o_red_serial;
 
 always
-#5 pixclk = ~pixclk;
+#5 i_pixclk = ~i_pixclk;
 
 always
-#1 tmdsclk = ~tmdsclk;
+#1 i_tmdsclk = ~i_tmdsclk;
 
 initial begin
-    pixclk = 1;
-    tmdsclk = 1;
-    reset = 0;
+    i_pixclk = 1;
+    i_tmdsclk = 1;
+    i_reset = 0;
 
-    data = 10'b0101110101;
+    i_blue_encode = 10'b0000011111;
+    i_green_encode = 10'b0101010101;
+    i_red_encode = 10'b1110001100;
 
     #100
-    reset = 1;
+    i_reset = 1;
 
     #20
-    reset = 0;
+    i_reset = 0;
   
 end
 
-Serializer_10_to_1 
-u_Serializer_10_to_1(
-    .pixclk(pixclk),
-    .tmdsclk(tmdsclk),
-    .reset(reset),
-    .data(data),
-    .serial(serial)
+TMDS_Serializer_10_to_1 
+blue_TMDS_Serializer_10_to_1(
+    .i_pixclk   (i_pixclk   ),
+    .i_tmdsclk  (i_tmdsclk  ),
+    .i_reset    (i_reset    ),
+    .i_data     (i_blue_encode),
+    .o_serial   (o_blue_serial)
+);
+
+TMDS_Serializer_10_to_1 
+green_TMDS_Serializer_10_to_1(
+    .i_pixclk   (i_pixclk   ),
+    .i_tmdsclk  (i_tmdsclk  ),
+    .i_reset    (i_reset    ),
+    .i_data     (i_green_encode),
+    .o_serial   (o_green_serial)
+);
+
+TMDS_Serializer_10_to_1 
+red_TMDS_Serializer_10_to_1(
+    .i_pixclk   (i_pixclk   ),
+    .i_tmdsclk  (i_tmdsclk  ),
+    .i_reset    (i_reset    ),
+    .i_data     (i_red_encode),
+    .o_serial   (o_red_serial)
 );
 
 

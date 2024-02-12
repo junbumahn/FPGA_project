@@ -85,8 +85,8 @@ OSERDESE2_slave (
    // D1 - D8: 1-bit (each) input: Parallel i_data inputs (1-bit each)
    .D1(1'b0),
    .D2(1'b0),
-   .D3(i_data[2]),
-   .D4(i_data[3]),
+   .D3(i_data[8]),
+   .D4(i_data[9]),
    .D5(1'b0),
    .D6(1'b0),
    .D7(1'b0),

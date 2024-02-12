@@ -11,8 +11,10 @@ reg i_vsync               ;
 reg [3:0] i_ctrl          ;    
 reg i_de                  ;
 
-wire [3:0]o_TMDS_P        ;
-wire [3:0]o_TMDS_N        ;
+wire [2:0] hdmi_tx_p      ;
+wire [2:0] hdmi_tx_n      ;
+wire hdmi_tx_clk_p;
+wire hdmi_tx_clk_n;
 
 always #5 i_pixclk = ~i_pixclk;         //pixclk generation 10ns period
 always #1 i_tmdsclk = ~i_tmdsclk;       //tmdsclk generation 2ns period
@@ -24,17 +26,21 @@ initial begin
     i_vsync = 1;
     i_ctrl = 4'b0000;
     i_reset = 0;
+   
 
-    #30
-    i_de = 1;
-    i_rgb_data = 24'b111010101101101011110111;
-
-    #30
+    #60
     i_reset = 1;
 
     #10
     i_reset = 0;
-
+    i_de <= 1;
+    i_rgb_data <= 24'b111010101101101011110111;
+    #10
+    i_rgb_data <= 24'b010110011001101011110111;
+    #10
+    i_rgb_data <= 24'b111010101101100110111111;
+    #10
+    i_rgb_data <= 24'b010101010110111110000111;
 
 end
 
@@ -48,8 +54,10 @@ tb_HDMI_TX_top(
     .i_vsync   (i_vsync   ),       
     .i_ctrl    (i_ctrl    ), 
     .i_de      (i_de      ),            
-    .o_TMDS_P  (o_TMDS_P  ), 
-    .o_TMDS_N  (o_TMDS_N  )
+    .hdmi_tx_p  (hdmi_tx_p  ), 
+    .hdmi_tx_n  (hdmi_tx_n  ),
+    .hdmi_tx_clk_p (hdmi_tx_clk_p),
+    .hdmi_tx_clk_n (hdmi_tx_clk_n)
 );
 
 

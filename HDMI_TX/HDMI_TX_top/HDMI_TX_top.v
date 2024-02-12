@@ -1,16 +1,17 @@
 module HDMI_TX_top (
     input i_pixclk              ,
+    input i_tmdsclk             ,
     input i_reset               ,
     input [23:0] i_rgb_data     ,
     input i_hsync               ,
     input i_vsync               ,
-    input [3:0]i_ctrl     ,
+    input [3:0]i_ctrl           ,
     input i_de                  ,
 
     
-    output [3:0]o_TMDS_P,
-    output [3:0]o_TMDS_N
-
+    output [2:0] hdmi_tx_p      ,
+    output [2:0] hdmi_tx_n      ,
+    output hdmi_tx_clk_p, hdmi_tx_clk_n
 );
 
 assign i_ctrl = 4'b0000;
@@ -29,7 +30,6 @@ wire [9:0] w_blue_encode    ;
 tmds_encoder_top
 tmds_encoder_top_inst(
      .i_pixclk          (i_pixclk),
-     .i_reset           (i_reset),
      .i_red             (w_red),
      .i_green           (w_green),
      .i_blue            (w_blue),
@@ -52,7 +52,7 @@ wire w_red_serial;
 TMDS_Serializer_10_to_1_top
 TMDS_Serializer_10_to_1_top_inst(
     .i_pixclk           (i_pixclk), 
-    .i_tmdsclk          (), 
+    .i_tmdsclk          (i_tmdsclk ), 
     .i_reset            (i_reset) , 
     .i_blue_encode      (w_blue_encode),
     .i_green_encode     (w_green_encode), 
@@ -64,14 +64,46 @@ TMDS_Serializer_10_to_1_top_inst(
 
 //step 3 : output the srialized value as differntial output
 
-TMDS_out
-TMDS_out_inst(
-    .i_blue_serial  (w_blue_serial),
-    .i_green_serial (w_green_serial),
-    .i_red_serial   (w_red_serial),
-    .i_pixclk       (i_pixclk), 
-    .o_TMDS_P       (o_TMDS_P),
-    .o_TMDS_N       (o_TMDS_N)
-);
+//TMDS channel 0 differential out (blue)
+   OBUFDS #(
+      .IOSTANDARD("DEFAULT"), // Specify the output I/O standard
+      .SLEW("SLOW")           // Specify the output slew rate
+   ) blue_OBUFDS (
+      .O( hdmi_tx_p[0]),     // Diff_p output (connect directly to top-level port)
+      .OB(hdmi_tx_n[0]),   // Diff_n output (connect directly to top-level port)
+      .I(w_blue_serial)      // Buffer input
+   );
+
+   //TMDS channel 1 differential out (green)
+    OBUFDS #(
+      .IOSTANDARD("DEFAULT"), // Specify the output I/O standard
+      .SLEW("SLOW")           // Specify the output slew rate
+    ) green_OBUFDS (
+      .O( hdmi_tx_p[1]),     // Diff_p output (connect directly to top-level port)
+      .OB(hdmi_tx_n[1]),   // Diff_n output (connect directly to top-level port)
+      .I(w_green_serial)      // Buffer input
+   );
+
+   //TMDS channel 2 differential out (red)
+    OBUFDS #(
+      .IOSTANDARD("DEFAULT"), // Specify the output I/O standard
+      .SLEW("SLOW")           // Specify the output slew rate
+    ) red_OBUFDS (
+      .O( hdmi_tx_p[2]),     // Diff_p output (connect directly to top-level port)
+      .OB(hdmi_tx_n[2]),   // Diff_n output (connect directly to top-level port)
+      .I(w_red_serial)      // Buffer input
+   );
+
+   //TMDS channel C differential out (pixclk)
+    OBUFDS #(
+      .IOSTANDARD("DEFAULT"), // Specify the output I/O standard
+      .SLEW("SLOW")           // Specify the output slew rate
+    ) clk_OBUFDS (
+      .O( hdmi_tx_clk_p),     // Diff_p output (connect directly to top-level port)
+      .OB(hdmi_tx_clk_n),   // Diff_n output (connect directly to top-level port)
+      .I(i_pixclk)      // Buffer input
+   );
+
+
     
 endmodule

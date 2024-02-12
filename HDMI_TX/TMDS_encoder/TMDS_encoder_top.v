@@ -2,7 +2,6 @@
 
 module tmds_encoder_top (
     input i_pixclk,
-    input i_reset,
 
     input [7:0] i_red,
     input [7:0] i_green,
@@ -24,9 +23,8 @@ module tmds_encoder_top (
 //TMDS channel 0 (blue) including hsync and vsync
 tmds_encoder
 blue_tmds_encoder(
-    .i_pixclk(i_pixclk),
-    .i_reset(i_reset),    
-    .i_DE(i_de), 
+    .i_pixclk(i_pixclk),   
+    .i_de(i_de), 
     .i_data(i_blue), 
     .i_ctrl({i_vsync,i_hsync}),
     .o_encode(o_blue_encode)
@@ -35,22 +33,20 @@ blue_tmds_encoder(
 //TMDS channel 1 (green)
 tmds_encoder
 green_tmds_encoder(
-    .i_pixclk(i_pixclk),
-    .i_reset(i_reset),    
-    .i_DE(i_de), 
+    .i_pixclk(i_pixclk),    
+    .i_de(i_de), 
     .i_data(i_green), 
-    .i_ctrl(i_ctrl),
+    .i_ctrl({0,0}),
     .o_encode(o_green_encode)
 );
 
 //TMDS channel 2 (red) 
 tmds_encoder
 red_tmds_encoder(
-    .i_pixclk(i_pixclk),
-    .i_reset(i_reset),    
-    .i_DE(i_de), 
+    .i_pixclk(i_pixclk),    
+    .i_de(i_de), 
     .i_data(i_red), 
-    .i_ctrl(i_ctrl),
+    .i_ctrl({0,0}),
     .o_encode(o_red_encode)
 );
 
