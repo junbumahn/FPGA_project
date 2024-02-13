@@ -1,7 +1,7 @@
 module HDMI_TX_top (
     input i_pixclk              ,
     input i_tmdsclk             ,
-    input i_reset               ,
+    input i_reset_n              ,
     input [23:0] i_rgb_data     ,
     input i_hsync               ,
     input i_vsync               ,
@@ -15,6 +15,8 @@ module HDMI_TX_top (
 );
 
 assign i_ctrl = 4'b0000;
+
+assign w_reset = 0 ~^ i_reset_n;  //invert "active low" reset to "active high" reset
 
 wire [7:0] w_red = i_rgb_data[7:0];
 wire [7:0] w_green = i_rgb_data[15:8];
@@ -53,7 +55,7 @@ TMDS_Serializer_10_to_1_top
 TMDS_Serializer_10_to_1_top_inst(
     .i_pixclk           (i_pixclk), 
     .i_tmdsclk          (i_tmdsclk ), 
-    .i_reset            (i_reset) , 
+    .i_reset            (w_reset) , 
     .i_blue_encode      (w_blue_encode),
     .i_green_encode     (w_green_encode), 
     .i_red_encode       (w_red_encode),
