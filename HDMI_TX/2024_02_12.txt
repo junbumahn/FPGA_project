@@ -7,5 +7,9 @@ things done:
 need to do:
 
 -convert reset_n -> reset for HDMI_TX module
+	-> assign xnor to reset_n signal
+
 -generate tmds clk and connect to HDMI_TX module
+	
+
 -create test RGB color and debug
