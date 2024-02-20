@@ -13,8 +13,8 @@ reg i_de                  ;
 
 wire [2:0] hdmi_tx_p      ;
 wire [2:0] hdmi_tx_n      ;
-wire hdmi_tx_clk_p;
-wire hdmi_tx_clk_n;
+wire hdmi_tx_clk_p        ;
+wire hdmi_tx_clk_n        ;
 
 always #5 i_pixclk = ~i_pixclk;         //pixclk generation 10ns period
 always #1 i_tmdsclk = ~i_tmdsclk;       //tmdsclk generation 2ns period

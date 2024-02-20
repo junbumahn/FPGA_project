@@ -1,0 +1,14 @@
+things done:
+
+
+
+need to do:
+
+-generate pixclk for 1280x720p60  = 74.250 MHz (pixel), 742.5 MHz (TMDS)
+	- Horizontal Freq.  45.000 kHz 
+	-  Vertical Freq.    60.000 Hz
+
+-generate tmds clk and connect to HDMI_TX module
+	
+
+-create test RGB color and debug

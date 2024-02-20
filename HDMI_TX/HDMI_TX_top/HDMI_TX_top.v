@@ -14,6 +14,8 @@ module HDMI_TX_top (
     output hdmi_tx_clk_p, hdmi_tx_clk_n
 );
 
+wire w_reset;
+
 assign i_ctrl = 4'b0000;
 
 assign w_reset = 0 ~^ i_reset_n;  //invert "active low" reset to "active high" reset
