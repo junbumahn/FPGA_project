@@ -1,0 +1,11 @@
+things done:
+
+-test TX with rgb generation (worked)  
+-designed HDMI RX part
+
+
+need to do:
+-find out a way to integrate de signal coming form three different color.
+-after that update decoder part.
+-test all the modules
+-test entire RX system 
