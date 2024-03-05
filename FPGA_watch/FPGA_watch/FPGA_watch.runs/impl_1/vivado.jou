@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2022.1 (64-bit)
+# SW Build 3526262 on Mon Apr 18 15:48:16 MDT 2022
+# IP Build 3524634 on Mon Apr 18 20:55:01 MDT 2022
+# Start of session at: Wed Mar  6 06:21:41 2024
+# Process ID: 73380
+# Current directory: C:/FPGA/FPGA_project/FPGA_watch/FPGA_watch/FPGA_watch.runs/impl_1
+# Command line: vivado.exe -log design_1_wrapper.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source design_1_wrapper.tcl -notrace
+# Log file: C:/FPGA/FPGA_project/FPGA_watch/FPGA_watch/FPGA_watch.runs/impl_1/design_1_wrapper.vdi
+# Journal file: C:/FPGA/FPGA_project/FPGA_watch/FPGA_watch/FPGA_watch.runs/impl_1\vivado.jou
+# Running On: DESKTOP-21LHLN4, OS: Windows, CPU Frequency: 3294 MHz, CPU Physical cores: 12, Host memory: 16542 MB
+#-----------------------------------------------------------
+source design_1_wrapper.tcl -notrace

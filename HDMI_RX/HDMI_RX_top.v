@@ -69,7 +69,6 @@ serial_clk_gen_inst (
 );
 
 
-
 //de_serialize incoming serialized data
 wire [9:0] w_encoded_blue;
 wire [9:0] w_encoded_green;

@@ -1,10 +1,9 @@
 module decoder (
-    input i_pixclk,
-    input [9:0] i_encoded_data,
-
-    output reg [7:0] o_decoded_data
+    input            i_pixclk,
+    input [9:0]      i_encoded_data,
+    output reg [7:0] o_decoded_data,
     output reg [1:0] o_ctrl,
-    output reg o_de
+    output reg       o_de
 );
 
 
@@ -52,9 +51,9 @@ reg [7:0] r_not_data;
 always @ (*) begin
     if(r_de_pipe1) begin
         if(r_encoded_data_pipe1[9] == 1) begin
-            r_not_data[7:0] = ~r_encoded_data_pipe1[7:0]
+            r_not_data[7:0] = ~r_encoded_data_pipe1[7:0];
         end else begin
-            r_not_data[7:0] = r_encoded_data_pipe1[7:0]
+            r_not_data[7:0] = r_encoded_data_pipe1[7:0];
         end
     end else begin
         r_not_data[7:0] = 8'h0;
