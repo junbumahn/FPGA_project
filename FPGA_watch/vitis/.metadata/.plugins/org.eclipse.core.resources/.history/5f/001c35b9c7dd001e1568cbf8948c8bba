@@ -1,0 +1,78 @@
+
+#include <stdio.h>
+#include "xparameters.h"
+#include "xil_io.h"
+
+
+#define AXI_DATA_BYTE 4
+
+
+#define CTRL_REG 0
+#define STATUS_REG 2
+#define TIME_REG 3
+
+#define run 0x80000000
+
+
+#define S_IDLE 	1
+#define S_RUN 	2
+//#define S_DONE	4
+#define S_PAUSE	8
+
+
+int main()
+{
+	int choice;
+	unsigned int data;
+	int read_hour_min_sec;
+	int hour;
+	int min;
+	int sec;
+	unsigned int status;
+
+	while (1) {
+		printf("======= watch ====== \n\n");
+    	printf("Plz input frequency (1 <= input <= 1GHz).\n\n");
+		scanf("%d", &data);
+		Xil_Out32((XPAR_WATCH_TOP_0_BASEADDR) + (CTRL_REG * AXI_DATA_BYTE), (u32)(run | data)); // write data and run signal and data at CTRL_REG (slv_reg0) using or operater
+		printf("FPGA_WATCH (hour : min : sec)\n");
+		while (1)
+		{
+			read_hour_min_sec = Xil_In32((XPAR_WATCH_TOP_0_BASEADDR)+(TIME_REG * AXI_DATA_BYTE)); // read TIME_REG (slv_reg3)
+			status = Xil_In32((XPAR_WATCH_TOP_0_BASEADDR)+(STATUS_REG * AXI_DATA_BYTE)); // read STATUS_REG (slv_reg2)
+
+			hour = (0x0003F000 & read_hour_min_sec) >> 12;	// masking the data so that only the desired part of data is left (hour) and shifted to right to locate them at LSB
+			min = (0x00000FC0 & read_hour_min_sec) >> 6;
+			sec = (0x0000003F & read_hour_min_sec) >> 0;
+
+			printf("\r(%2d:%2d:%2d) ", hour, min, sec);
+
+			switch (status){
+				case S_IDLE:
+					printf("Idle!\n\n");
+					break;
+				case S_RUN:
+					printf("Running!\n\n");
+					break;
+//				case S_DONE:
+//					printf("Stoped!\n\n");
+//					break;
+				case S_PAUSE:
+					printf("Pasued!\n\n");
+					break;
+				default:
+					printf("Invalid output. HW logic ERROR!!!\n\n");
+			}
+
+			fflush(stdout);
+			usleep(10000);
+
+			if(status == S_IDLE)
+			{
+				break;
+			}
+		}
+	}
+	return 0;
+}
+

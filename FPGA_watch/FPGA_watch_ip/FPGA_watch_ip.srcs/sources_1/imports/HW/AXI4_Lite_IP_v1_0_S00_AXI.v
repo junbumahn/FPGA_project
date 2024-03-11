@@ -4,7 +4,7 @@
 	module AXI4_Lite_IP_v1_0_S00_AXI #
 	(
 		// Users to add parameters here
-		parameter CNT_BIT = 32,
+		parameter CNT_BIT = 31,
 		parameter SEC_BIT = 6,
 		parameter MIN_BIT = 6,
 		parameter HOUR_BIT = 6,
@@ -18,8 +18,15 @@
 	)
 	(
 		// Users to add ports here
-		output [CNT_BIT-1:0] o_cnt_th,
-		input [SEC_BIT + MIN_BIT + HOUR_BIT -1:0] i_time,
+
+		output 			   						   o_run		,
+		output [CNT_BIT-1:0] 					   o_cnt_th		,
+		input  			   						   i_idle		,
+		input  			   						   i_running	,
+		input  			   						   i_done		,
+		input									   i_pausing	,
+		input [SEC_BIT + MIN_BIT + HOUR_BIT -1: 0] i_time		,
+
 		// User ports ends
 		// Do not modify the ports beyond this line
 
@@ -108,10 +115,10 @@
 	//-- Signals for user logic register space example
 	//------------------------------------------------
 	//-- Number of Slave Registers 4
-	reg [C_S_AXI_DATA_WIDTH-1:0]	slv_reg0;
-	reg [C_S_AXI_DATA_WIDTH-1:0]	slv_reg1;
-	reg [C_S_AXI_DATA_WIDTH-1:0]	slv_reg2;
-	reg [C_S_AXI_DATA_WIDTH-1:0]	slv_reg3;
+	reg [C_S_AXI_DATA_WIDTH-1:0]	slv_reg0;	// count_control
+	reg [C_S_AXI_DATA_WIDTH-1:0]	slv_reg1;	
+	reg [C_S_AXI_DATA_WIDTH-1:0]	slv_reg2;	// status_read
+	reg [C_S_AXI_DATA_WIDTH-1:0]	slv_reg3;	// time_read
 	wire	 slv_reg_rden;
 	wire	 slv_reg_wren;
 	reg [C_S_AXI_DATA_WIDTH-1:0]	 reg_data_out;
@@ -226,8 +233,8 @@
 	    begin
 	      slv_reg0 <= 0;
 	      slv_reg1 <= 0;
-	      slv_reg2 <= 0;
-	      slv_reg3 <= 0;
+//	      slv_reg2 <= 0;
+//	      slv_reg3 <= 0;
 	    end 
 	  else begin
 	    if (slv_reg_wren)
@@ -247,25 +254,25 @@
 	                // Slave register 1
 	                slv_reg1[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
 	              end  
-	          2'h2:
-	            for ( byte_index = 0; byte_index <= (C_S_AXI_DATA_WIDTH/8)-1; byte_index = byte_index+1 )
-	              if ( S_AXI_WSTRB[byte_index] == 1 ) begin
-	                // Respective byte enables are asserted as per write strobes 
-	                // Slave register 2
-	                slv_reg2[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
-	              end  
-	          2'h3:
-	            for ( byte_index = 0; byte_index <= (C_S_AXI_DATA_WIDTH/8)-1; byte_index = byte_index+1 )
-	              if ( S_AXI_WSTRB[byte_index] == 1 ) begin
-	                // Respective byte enables are asserted as per write strobes 
-	                // Slave register 3
-	                slv_reg3[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
-	              end  
+//	          2'h2:
+//	            for ( byte_index = 0; byte_index <= (C_S_AXI_DATA_WIDTH/8)-1; byte_index = byte_index+1 )
+//	              if ( S_AXI_WSTRB[byte_index] == 1 ) begin
+//	                // Respective byte enables are asserted as per write strobes 
+//	                // Slave register 2
+//	                slv_reg2[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
+//	              end  
+//	          2'h3:
+//	            for ( byte_index = 0; byte_index <= (C_S_AXI_DATA_WIDTH/8)-1; byte_index = byte_index+1 )
+//	              if ( S_AXI_WSTRB[byte_index] == 1 ) begin
+//	                // Respective byte enables are asserted as per write strobes 
+//	                // Slave register 3
+//	                slv_reg3[(byte_index*8) +: 8] <= S_AXI_WDATA[(byte_index*8) +: 8];
+//	              end  
 	          default : begin
 	                      slv_reg0 <= slv_reg0;
 	                      slv_reg1 <= slv_reg1;
-                    	  slv_reg2 <= slv_reg2;
-                      	  slv_reg3 <= slv_reg3;
+//                    	  slv_reg2 <= slv_reg2;
+//                        slv_reg3 <= slv_reg3;
 	                    end
 	        endcase
 	      end
@@ -377,7 +384,7 @@
 	        2'h0   : reg_data_out <= slv_reg0;
 	        2'h1   : reg_data_out <= slv_reg1;
 	        2'h2   : reg_data_out <= slv_reg2;
-	        2'h3   : reg_data_out <= i_time;
+	        2'h3   : reg_data_out <= slv_reg3;
 	        default : reg_data_out <= 0;
 	      endcase
 	end
@@ -403,8 +410,79 @@
 
 	// Add user logic here
 
+	//count_control register (slv_reg0)
+	reg r_run;
+	always @(posedge S_AXI_ACLK) begin 
+    	if(!S_AXI_ARESETN) begin // sync reset_n
+    	    r_run <= 1'b0;  
+    	end else begin
+            r_run <= slv_reg0[CNT_BIT];
+		end 
+	end
 
-	assign o_cnt_th = slv_reg0;
+	assign o_run = (r_run == 1'b0) && (slv_reg0[CNT_BIT] == 1'b1); // o_run 1 tick generation
+	assign o_cnt_th = slv_reg0[CNT_BIT-1:0];
+
+
+	//status_read register (slv_reg2)
+	reg r_done; // to keep done status, i_done is a 1 tick.
+	reg r_idle;
+	reg r_running;
+	reg r_pausing;
+
+	always @(posedge S_AXI_ACLK) begin
+    	if(!S_AXI_ARESETN) begin  // sync reset_n
+    	    r_done <= 1'b0;  
+			r_idle	<= 1'b0;
+			r_running <= 1'b0;
+			r_pausing <= 1'b0;
+    	end else if (i_done) begin
+    	    r_done <= 1'b1;
+			r_idle	<= 1'b0;
+			r_running <= 1'b0;
+			r_pausing <= 1'b0;
+		end else if (i_running) begin
+			r_running <= 1'b1;
+			r_idle	<= 1'b0;
+			r_pausing <= 1'b0;
+			r_done <= 1'b0;
+		end else if (i_idle) begin
+			r_idle <= 1'b1;
+			r_pausing <= 1'b0;
+			r_done <= 1'b0;
+			r_running <= 1'b0;
+		end else if (i_pausing) begin
+			r_pausing <= 1'b1;
+			r_done <= 1'b0;
+			r_running <= 1'b0;
+			r_idle <= 1'b0;
+		end 
+	// else. keep status
+	end
+
+	always @ (posedge S_AXI_ACLK) begin
+		if(!S_AXI_ARESETN)begin
+			slv_reg2 <= 0;
+		end else begin
+			slv_reg2[0] <= r_idle;
+			slv_reg2[1] <= r_running;
+			slv_reg2[2] <= r_done;
+			slv_reg2[3] <= r_pausing;
+			// [31:4] reserved
+		end
+	end
+
+
+
+	//time_read register (slv_reg3)
+	always @ (posedge S_AXI_ACLK) begin
+		if(!S_AXI_ARESETN)begin
+			slv_reg3 <= 32'b0;
+		end else begin
+			slv_reg3[SEC_BIT + MIN_BIT + HOUR_BIT-1: 0] <= i_time;
+		end
+	end
+		
 
 	// User logic ends
 

@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='C:/FPGA/FPGA_project/FPGA_watch/FPGA_watch/FPGA_watch.runs/synth_1'
+HD_PWD='C:/FPGA/FPGA_project/FPGA_watch_ver3/FPGA_watch/FPGA_watch.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

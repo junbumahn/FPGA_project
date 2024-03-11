@@ -4,7 +4,7 @@
 	module AXI4_Lite_IP_v1_0 #
 	(
 		// Users to add parameters here
-		parameter CNT_BIT = 32,
+		parameter CNT_BIT = 31,
 		parameter SEC_BIT = 6,
 		parameter MIN_BIT = 6,
 		parameter HOUR_BIT = 6,
@@ -18,8 +18,14 @@
 	)
 	(
 		// Users to add ports here
-		output [CNT_BIT-1:0] o_cnt_th,
-		input [SEC_BIT + MIN_BIT + HOUR_BIT -1:0] i_time,
+		
+		output 			   						   o_run		,
+		output [CNT_BIT-1:0] 					   o_cnt_th		,
+		input  			   						   i_idle		,
+		input  			   						   i_running	,
+		input  			   						   i_done		,
+		input									   i_pausing	,
+		input [SEC_BIT + MIN_BIT + HOUR_BIT -1: 0] i_time		,
 		// User ports ends
 		// Do not modify the ports beyond this line
 
@@ -57,8 +63,13 @@
 		.C_S_AXI_ADDR_WIDTH(C_S00_AXI_ADDR_WIDTH)
 	) AXI4_Lite_IP_v1_0_S00_AXI_inst (
 		
-		.o_cnt_th(o_cnt_th),
-		.i_time(i_time),
+		.o_run			(o_run			)		,		
+		.o_cnt_th		(o_cnt_th		)		,
+		.i_idle			(i_idle			)		,
+		.i_running		(i_running		)		,
+		.i_done			(i_done			)		,
+		.i_pausing		(i_pausing		)		,
+		.i_time			(i_time			)		,
 
 		.S_AXI_ACLK(s00_axi_aclk),
 		.S_AXI_ARESETN(s00_axi_aresetn),

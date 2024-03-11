@@ -1,63 +1,401 @@
-06:26:11 DEBUG : Logs will be stored at 'C:/FPGA/FPGA_project/FPGA_watch/vitis/IDE.log'.
-06:26:14 INFO  : Launching XSCT server: xsct.bat -n  -interactive C:\FPGA\FPGA_project\FPGA_watch\vitis\temp_xsdb_launch_script.tcl
-06:26:14 INFO  : Registering command handlers for Vitis TCF services
-06:26:14 INFO  : Platform repository initialization has completed.
-06:26:17 INFO  : XSCT server has started successfully.
-06:26:17 INFO  : Successfully done setting XSCT server connection channel  
-06:26:19 INFO  : plnx-install-location is set to ''
-06:26:19 INFO  : Successfully done setting workspace for the tool. 
-06:26:19 INFO  : Successfully done query RDI_DATADIR 
-06:26:58 INFO  : Result from executing command 'getProjects': design_1_wrapper
-06:26:58 INFO  : Result from executing command 'getPlatforms': 
-06:26:58 WARN  : An unexpected exception occurred in the module 'platform project logging'
-06:26:58 INFO  : Platform 'design_1_wrapper' is added to custom repositories.
-06:27:07 INFO  : Platform 'design_1_wrapper' is added to custom repositories.
-06:29:34 INFO  : Result from executing command 'getProjects': design_1_wrapper
-06:29:34 INFO  : Result from executing command 'getPlatforms': design_1_wrapper|C:/FPGA/FPGA_project/FPGA_watch/vitis/design_1_wrapper/export/design_1_wrapper/design_1_wrapper.xpfm
-06:29:34 INFO  : Checking for BSP changes to sync application flags for project 'watch_app'...
-06:31:16 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
-06:31:17 INFO  : Jtag cable 'Digilent Zybo Z7 210351B7BBFCA' is selected.
-06:31:17 INFO  : 'jtag frequency' command is executed.
-06:31:17 INFO  : Context for 'APU' is selected.
-06:31:17 INFO  : System reset is completed.
-06:31:20 INFO  : 'after 3000' command is executed.
-06:31:20 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351B7BBFCA" && level==0 && jtag_device_ctx=="jsn-Zybo Z7-210351B7BBFCA-23727093-0"}' command is executed.
-06:31:22 INFO  : Device configured successfully with "C:/FPGA/FPGA_project/FPGA_watch/vitis/watch_app/_ide/bitstream/design_1_wrapper.bit"
-06:31:22 INFO  : Context for 'APU' is selected.
-06:31:22 INFO  : Hardware design and registers information is loaded from 'C:/FPGA/FPGA_project/FPGA_watch/vitis/design_1_wrapper/export/design_1_wrapper/hw/design_1_wrapper.xsa'.
-06:31:22 INFO  : 'configparams force-mem-access 1' command is executed.
-06:31:22 INFO  : Context for 'APU' is selected.
-06:31:22 INFO  : Sourcing of 'C:/FPGA/FPGA_project/FPGA_watch/vitis/watch_app/_ide/psinit/ps7_init.tcl' is done.
-06:31:22 INFO  : 'ps7_init' command is executed.
-06:31:22 INFO  : 'ps7_post_config' command is executed.
-06:31:22 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
-06:31:23 INFO  : The application 'C:/FPGA/FPGA_project/FPGA_watch/vitis/watch_app/Debug/watch_app.elf' is downloaded to processor 'ps7_cortexa9_0'.
-06:31:23 INFO  : 'configparams force-mem-access 0' command is executed.
-06:31:23 INFO  : ----------------XSDB Script----------------
+12:44:13 DEBUG : Logs will be stored at 'C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/IDE.log'.
+12:44:16 INFO  : Registering command handlers for Vitis TCF services
+12:44:16 INFO  : Launching XSCT server: xsct.bat -n  -interactive C:\FPGA\FPGA_project\FPGA_watch_ver3\vitis\temp_xsdb_launch_script.tcl
+12:44:16 INFO  : Platform repository initialization has completed.
+12:44:20 INFO  : XSCT server has started successfully.
+12:44:23 INFO  : plnx-install-location is set to ''
+12:44:23 INFO  : Successfully done setting XSCT server connection channel  
+12:44:23 INFO  : Successfully done query RDI_DATADIR 
+12:44:23 INFO  : Successfully done setting workspace for the tool. 
+12:45:33 INFO  : Result from executing command 'getProjects': design_1_wrapper
+12:45:33 INFO  : Result from executing command 'getPlatforms': 
+12:45:33 WARN  : An unexpected exception occurred in the module 'platform project logging'
+12:45:34 INFO  : Platform 'design_1_wrapper' is added to custom repositories.
+12:45:41 INFO  : Platform 'design_1_wrapper' is added to custom repositories.
+12:46:38 INFO  : Result from executing command 'getProjects': design_1_wrapper
+12:46:38 INFO  : Result from executing command 'getPlatforms': design_1_wrapper|C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/design_1_wrapper/export/design_1_wrapper/design_1_wrapper.xpfm
+12:46:39 INFO  : Checking for BSP changes to sync application flags for project 'watch_app'...
+12:47:17 INFO  : Checking for BSP changes to sync application flags for project 'watch_app'...
+12:50:54 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+12:50:55 INFO  : Jtag cable 'Digilent Zybo Z7 210351B7BBFCA' is selected.
+12:50:55 INFO  : 'jtag frequency' command is executed.
+12:50:55 INFO  : Context for 'APU' is selected.
+12:50:55 INFO  : System reset is completed.
+12:50:58 INFO  : 'after 3000' command is executed.
+12:50:58 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351B7BBFCA" && level==0 && jtag_device_ctx=="jsn-Zybo Z7-210351B7BBFCA-23727093-0"}' command is executed.
+12:51:00 INFO  : Device configured successfully with "C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/watch_app/_ide/bitstream/design_1_wrapper.bit"
+12:51:00 INFO  : Context for 'APU' is selected.
+12:51:01 INFO  : Hardware design and registers information is loaded from 'C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/design_1_wrapper/export/design_1_wrapper/hw/design_1_wrapper.xsa'.
+12:51:01 INFO  : 'configparams force-mem-access 1' command is executed.
+12:51:01 INFO  : Context for 'APU' is selected.
+12:51:01 INFO  : Sourcing of 'C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/watch_app/_ide/psinit/ps7_init.tcl' is done.
+12:51:01 INFO  : 'ps7_init' command is executed.
+12:51:01 INFO  : 'ps7_post_config' command is executed.
+12:51:01 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+12:51:01 INFO  : The application 'C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/watch_app/Debug/watch_app.elf' is downloaded to processor 'ps7_cortexa9_0'.
+12:51:01 INFO  : 'configparams force-mem-access 0' command is executed.
+12:51:01 INFO  : ----------------XSDB Script----------------
 connect -url tcp:127.0.0.1:3121
 targets -set -nocase -filter {name =~"APU*"}
 rst -system
 after 3000
 targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351B7BBFCA" && level==0 && jtag_device_ctx=="jsn-Zybo Z7-210351B7BBFCA-23727093-0"}
-fpga -file C:/FPGA/FPGA_project/FPGA_watch/vitis/watch_app/_ide/bitstream/design_1_wrapper.bit
+fpga -file C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/watch_app/_ide/bitstream/design_1_wrapper.bit
 targets -set -nocase -filter {name =~"APU*"}
-loadhw -hw C:/FPGA/FPGA_project/FPGA_watch/vitis/design_1_wrapper/export/design_1_wrapper/hw/design_1_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+loadhw -hw C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/design_1_wrapper/export/design_1_wrapper/hw/design_1_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
 configparams force-mem-access 1
 targets -set -nocase -filter {name =~"APU*"}
-source C:/FPGA/FPGA_project/FPGA_watch/vitis/watch_app/_ide/psinit/ps7_init.tcl
+source C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/watch_app/_ide/psinit/ps7_init.tcl
 ps7_init
 ps7_post_config
 targets -set -nocase -filter {name =~ "*A9*#0"}
-dow C:/FPGA/FPGA_project/FPGA_watch/vitis/watch_app/Debug/watch_app.elf
+dow C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/watch_app/Debug/watch_app.elf
 configparams force-mem-access 0
 ----------------End of Script----------------
 
-06:31:23 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
-06:31:23 INFO  : 'con' command is executed.
-06:31:23 INFO  : ----------------XSDB Script (After Launch)----------------
+12:51:01 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+12:51:01 INFO  : 'con' command is executed.
+12:51:01 INFO  : ----------------XSDB Script (After Launch)----------------
 targets -set -nocase -filter {name =~ "*A9*#0"}
 con
 ----------------End of Script----------------
 
-06:31:23 INFO  : Launch script is exported to file 'C:\FPGA\FPGA_project\FPGA_watch\vitis\watch_app_system\_ide\scripts\debugger_watch_app-default.tcl'
-06:37:55 INFO  : Disconnected from the channel tcfchan#2.
+12:51:01 INFO  : Launch script is exported to file 'C:\FPGA\FPGA_project\FPGA_watch_ver3\vitis\watch_app_system\_ide\scripts\debugger_watch_app-default.tcl'
+13:24:58 INFO  : Hardware specification for platform project 'design_1_wrapper' is updated.
+13:25:18 INFO  : Result from executing command 'getProjects': design_1_wrapper
+13:25:18 INFO  : Result from executing command 'getPlatforms': design_1_wrapper|C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/design_1_wrapper/export/design_1_wrapper/design_1_wrapper.xpfm
+13:25:53 INFO  : Disconnected from the channel tcfchan#2.
+13:25:54 INFO  : The hardware specification used by project 'watch_app' is out of sync with the platform. Resource files extracted from the hardware specification will be updated.
+13:25:54 INFO  : The file 'C:\FPGA\FPGA_project\FPGA_watch_ver3\vitis\watch_app\_ide\bitstream\design_1_wrapper.bit' stored in project is removed.
+13:25:54 INFO  : The updated bitstream files are copied from platform to folder 'C:\FPGA\FPGA_project\FPGA_watch_ver3\vitis\watch_app\_ide\bitstream' in project 'watch_app'.
+13:25:54 INFO  : The file 'C:\FPGA\FPGA_project\FPGA_watch_ver3\vitis\watch_app\_ide\psinit\ps7_init.tcl' stored in project is removed.
+13:25:58 INFO  : The updated ps init files are copied from platform to folder 'C:\FPGA\FPGA_project\FPGA_watch_ver3\vitis\watch_app\_ide\psinit' in project 'watch_app'.
+13:25:59 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+13:25:59 INFO  : Jtag cable 'Digilent Zybo Z7 210351B7BBFCA' is selected.
+13:25:59 INFO  : 'jtag frequency' command is executed.
+13:25:59 INFO  : Context for 'APU' is selected.
+13:25:59 INFO  : System reset is completed.
+13:26:02 INFO  : 'after 3000' command is executed.
+13:26:02 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351B7BBFCA" && level==0 && jtag_device_ctx=="jsn-Zybo Z7-210351B7BBFCA-23727093-0"}' command is executed.
+13:26:04 INFO  : Device configured successfully with "C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/watch_app/_ide/bitstream/design_1_wrapper.bit"
+13:26:04 INFO  : Context for 'APU' is selected.
+13:26:04 INFO  : Hardware design and registers information is loaded from 'C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/design_1_wrapper/export/design_1_wrapper/hw/design_1_wrapper.xsa'.
+13:26:04 INFO  : 'configparams force-mem-access 1' command is executed.
+13:26:04 INFO  : Context for 'APU' is selected.
+13:26:04 INFO  : Sourcing of 'C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/watch_app/_ide/psinit/ps7_init.tcl' is done.
+13:26:04 INFO  : 'ps7_init' command is executed.
+13:26:04 INFO  : 'ps7_post_config' command is executed.
+13:26:05 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+13:26:05 INFO  : The application 'C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/watch_app/Debug/watch_app.elf' is downloaded to processor 'ps7_cortexa9_0'.
+13:26:05 INFO  : 'configparams force-mem-access 0' command is executed.
+13:26:05 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351B7BBFCA" && level==0 && jtag_device_ctx=="jsn-Zybo Z7-210351B7BBFCA-23727093-0"}
+fpga -file C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/watch_app/_ide/bitstream/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/design_1_wrapper/export/design_1_wrapper/hw/design_1_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/watch_app/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/watch_app/Debug/watch_app.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+13:26:05 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+13:26:05 INFO  : 'con' command is executed.
+13:26:05 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+13:26:05 INFO  : Launch script is exported to file 'C:\FPGA\FPGA_project\FPGA_watch_ver3\vitis\watch_app_system\_ide\scripts\debugger_watch_app-default.tcl'
+13:30:03 INFO  : Checking for BSP changes to sync application flags for project 'watch_app'...
+13:30:24 INFO  : Disconnected from the channel tcfchan#4.
+13:30:25 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+13:30:26 INFO  : Jtag cable 'Digilent Zybo Z7 210351B7BBFCA' is selected.
+13:30:26 ERROR : port closed
+13:30:26 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+----------------End of Script----------------
+
+13:30:26 ERROR : port closed
+13:30:39 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+13:30:39 INFO  : Jtag cable 'Digilent Zybo Z7 210351B7BBFCA' is selected.
+13:30:39 INFO  : 'jtag frequency' command is executed.
+13:30:39 INFO  : Context for 'APU' is selected.
+13:30:39 INFO  : System reset is completed.
+13:30:42 INFO  : 'after 3000' command is executed.
+13:30:42 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351B7BBFCA" && level==0 && jtag_device_ctx=="jsn-Zybo Z7-210351B7BBFCA-23727093-0"}' command is executed.
+13:30:45 INFO  : Device configured successfully with "C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/watch_app/_ide/bitstream/design_1_wrapper.bit"
+13:30:45 INFO  : Context for 'APU' is selected.
+13:30:45 INFO  : Hardware design and registers information is loaded from 'C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/design_1_wrapper/export/design_1_wrapper/hw/design_1_wrapper.xsa'.
+13:30:45 INFO  : 'configparams force-mem-access 1' command is executed.
+13:30:45 INFO  : Context for 'APU' is selected.
+13:30:45 INFO  : Sourcing of 'C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/watch_app/_ide/psinit/ps7_init.tcl' is done.
+13:30:45 INFO  : 'ps7_init' command is executed.
+13:30:45 INFO  : 'ps7_post_config' command is executed.
+13:30:45 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+13:30:45 INFO  : The application 'C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/watch_app/Debug/watch_app.elf' is downloaded to processor 'ps7_cortexa9_0'.
+13:30:45 INFO  : 'configparams force-mem-access 0' command is executed.
+13:30:45 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351B7BBFCA" && level==0 && jtag_device_ctx=="jsn-Zybo Z7-210351B7BBFCA-23727093-0"}
+fpga -file C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/watch_app/_ide/bitstream/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/design_1_wrapper/export/design_1_wrapper/hw/design_1_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/watch_app/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/watch_app/Debug/watch_app.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+13:30:45 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+13:30:45 INFO  : 'con' command is executed.
+13:30:45 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+13:30:45 INFO  : Launch script is exported to file 'C:\FPGA\FPGA_project\FPGA_watch_ver3\vitis\watch_app_system\_ide\scripts\debugger_watch_app-default.tcl'
+13:42:05 INFO  : Checking for BSP changes to sync application flags for project 'watch_app'...
+13:43:08 INFO  : Checking for BSP changes to sync application flags for project 'watch_app'...
+13:43:12 INFO  : Disconnected from the channel tcfchan#5.
+13:43:13 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+13:43:13 INFO  : Jtag cable 'Digilent Zybo Z7 210351B7BBFCA' is selected.
+13:43:13 INFO  : 'jtag frequency' command is executed.
+13:43:13 INFO  : Context for 'APU' is selected.
+13:43:14 INFO  : System reset is completed.
+13:43:17 INFO  : 'after 3000' command is executed.
+13:43:17 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351B7BBFCA" && level==0 && jtag_device_ctx=="jsn-Zybo Z7-210351B7BBFCA-23727093-0"}' command is executed.
+13:43:19 INFO  : Device configured successfully with "C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/watch_app/_ide/bitstream/design_1_wrapper.bit"
+13:43:19 INFO  : Context for 'APU' is selected.
+13:43:19 INFO  : Hardware design and registers information is loaded from 'C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/design_1_wrapper/export/design_1_wrapper/hw/design_1_wrapper.xsa'.
+13:43:19 INFO  : 'configparams force-mem-access 1' command is executed.
+13:43:19 INFO  : Context for 'APU' is selected.
+13:43:19 INFO  : Sourcing of 'C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/watch_app/_ide/psinit/ps7_init.tcl' is done.
+13:43:19 INFO  : 'ps7_init' command is executed.
+13:43:19 INFO  : 'ps7_post_config' command is executed.
+13:43:19 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+13:43:19 INFO  : The application 'C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/watch_app/Debug/watch_app.elf' is downloaded to processor 'ps7_cortexa9_0'.
+13:43:19 INFO  : 'configparams force-mem-access 0' command is executed.
+13:43:19 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351B7BBFCA" && level==0 && jtag_device_ctx=="jsn-Zybo Z7-210351B7BBFCA-23727093-0"}
+fpga -file C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/watch_app/_ide/bitstream/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/design_1_wrapper/export/design_1_wrapper/hw/design_1_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/watch_app/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/watch_app/Debug/watch_app.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+13:43:20 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+13:43:20 INFO  : 'con' command is executed.
+13:43:20 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+13:43:20 INFO  : Launch script is exported to file 'C:\FPGA\FPGA_project\FPGA_watch_ver3\vitis\watch_app_system\_ide\scripts\debugger_watch_app-default.tcl'
+13:47:44 INFO  : Checking for BSP changes to sync application flags for project 'watch_app'...
+13:51:42 INFO  : Checking for BSP changes to sync application flags for project 'watch_app'...
+13:52:06 INFO  : Disconnected from the channel tcfchan#6.
+13:52:07 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+13:52:07 INFO  : Jtag cable 'Digilent Zybo Z7 210351B7BBFCA' is selected.
+13:52:07 ERROR : port closed
+13:52:07 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+----------------End of Script----------------
+
+13:52:07 ERROR : port closed
+13:52:15 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+13:52:15 INFO  : Jtag cable 'Digilent Zybo Z7 210351B7BBFCA' is selected.
+13:52:15 INFO  : 'jtag frequency' command is executed.
+13:52:15 INFO  : Context for 'APU' is selected.
+13:52:15 INFO  : System reset is completed.
+13:52:18 INFO  : 'after 3000' command is executed.
+13:52:19 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351B7BBFCA" && level==0 && jtag_device_ctx=="jsn-Zybo Z7-210351B7BBFCA-23727093-0"}' command is executed.
+13:52:21 INFO  : Device configured successfully with "C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/watch_app/_ide/bitstream/design_1_wrapper.bit"
+13:52:21 INFO  : Context for 'APU' is selected.
+13:52:21 INFO  : Hardware design and registers information is loaded from 'C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/design_1_wrapper/export/design_1_wrapper/hw/design_1_wrapper.xsa'.
+13:52:21 INFO  : 'configparams force-mem-access 1' command is executed.
+13:52:21 INFO  : Context for 'APU' is selected.
+13:52:21 INFO  : Sourcing of 'C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/watch_app/_ide/psinit/ps7_init.tcl' is done.
+13:52:21 INFO  : 'ps7_init' command is executed.
+13:52:21 INFO  : 'ps7_post_config' command is executed.
+13:52:21 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+13:52:21 INFO  : The application 'C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/watch_app/Debug/watch_app.elf' is downloaded to processor 'ps7_cortexa9_0'.
+13:52:21 INFO  : 'configparams force-mem-access 0' command is executed.
+13:52:21 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351B7BBFCA" && level==0 && jtag_device_ctx=="jsn-Zybo Z7-210351B7BBFCA-23727093-0"}
+fpga -file C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/watch_app/_ide/bitstream/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/design_1_wrapper/export/design_1_wrapper/hw/design_1_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/watch_app/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/watch_app/Debug/watch_app.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+13:52:22 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+13:52:22 INFO  : 'con' command is executed.
+13:52:22 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+13:52:22 INFO  : Launch script is exported to file 'C:\FPGA\FPGA_project\FPGA_watch_ver3\vitis\watch_app_system\_ide\scripts\debugger_watch_app-default.tcl'
+14:16:47 INFO  : Hardware specification for platform project 'design_1_wrapper' is updated.
+14:17:09 INFO  : Result from executing command 'getProjects': design_1_wrapper
+14:17:09 INFO  : Result from executing command 'getPlatforms': design_1_wrapper|C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/design_1_wrapper/export/design_1_wrapper/design_1_wrapper.xpfm
+14:17:21 INFO  : Disconnected from the channel tcfchan#7.
+14:17:22 INFO  : The hardware specification used by project 'watch_app' is out of sync with the platform. Resource files extracted from the hardware specification will be updated.
+14:17:23 INFO  : The file 'C:\FPGA\FPGA_project\FPGA_watch_ver3\vitis\watch_app\_ide\bitstream\design_1_wrapper.bit' stored in project is removed.
+14:17:23 INFO  : The updated bitstream files are copied from platform to folder 'C:\FPGA\FPGA_project\FPGA_watch_ver3\vitis\watch_app\_ide\bitstream' in project 'watch_app'.
+14:17:23 INFO  : The file 'C:\FPGA\FPGA_project\FPGA_watch_ver3\vitis\watch_app\_ide\psinit\ps7_init.tcl' stored in project is removed.
+14:17:27 INFO  : The updated ps init files are copied from platform to folder 'C:\FPGA\FPGA_project\FPGA_watch_ver3\vitis\watch_app\_ide\psinit' in project 'watch_app'.
+14:17:27 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+14:17:27 INFO  : Jtag cable 'Digilent Zybo Z7 210351B7BBFCA' is selected.
+14:17:27 INFO  : 'jtag frequency' command is executed.
+14:17:27 INFO  : Context for 'APU' is selected.
+14:17:27 INFO  : System reset is completed.
+14:17:30 INFO  : 'after 3000' command is executed.
+14:17:31 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351B7BBFCA" && level==0 && jtag_device_ctx=="jsn-Zybo Z7-210351B7BBFCA-23727093-0"}' command is executed.
+14:17:33 INFO  : Device configured successfully with "C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/watch_app/_ide/bitstream/design_1_wrapper.bit"
+14:17:33 INFO  : Context for 'APU' is selected.
+14:17:33 INFO  : Hardware design and registers information is loaded from 'C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/design_1_wrapper/export/design_1_wrapper/hw/design_1_wrapper.xsa'.
+14:17:33 INFO  : 'configparams force-mem-access 1' command is executed.
+14:17:33 INFO  : Context for 'APU' is selected.
+14:17:33 INFO  : Sourcing of 'C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/watch_app/_ide/psinit/ps7_init.tcl' is done.
+14:17:33 INFO  : 'ps7_init' command is executed.
+14:17:33 INFO  : 'ps7_post_config' command is executed.
+14:17:33 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:17:33 INFO  : The application 'C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/watch_app/Debug/watch_app.elf' is downloaded to processor 'ps7_cortexa9_0'.
+14:17:33 INFO  : 'configparams force-mem-access 0' command is executed.
+14:17:33 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351B7BBFCA" && level==0 && jtag_device_ctx=="jsn-Zybo Z7-210351B7BBFCA-23727093-0"}
+fpga -file C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/watch_app/_ide/bitstream/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/design_1_wrapper/export/design_1_wrapper/hw/design_1_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/watch_app/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/watch_app/Debug/watch_app.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+14:17:34 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:17:34 INFO  : 'con' command is executed.
+14:17:34 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+14:17:34 INFO  : Launch script is exported to file 'C:\FPGA\FPGA_project\FPGA_watch_ver3\vitis\watch_app_system\_ide\scripts\debugger_watch_app-default.tcl'
+14:21:56 INFO  : Disconnected from the channel tcfchan#9.
+14:05:16 DEBUG : Logs will be stored at 'C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/IDE.log'.
+14:05:17 INFO  : Launching XSCT server: xsct.bat -n  -interactive C:\FPGA\FPGA_project\FPGA_watch_ver3\vitis\temp_xsdb_launch_script.tcl
+14:05:20 INFO  : XSCT server has started successfully.
+14:05:20 INFO  : plnx-install-location is set to ''
+14:05:20 INFO  : Successfully done setting XSCT server connection channel  
+14:05:20 INFO  : Successfully done setting workspace for the tool. 
+14:05:21 INFO  : Platform repository initialization has completed.
+14:05:21 INFO  : Successfully done query RDI_DATADIR 
+14:05:22 INFO  : Registering command handlers for Vitis TCF services
+14:06:29 INFO  : Checking for BSP changes to sync application flags for project 'watch_app'...
+14:07:00 INFO  : Hardware specification for platform project 'design_1_wrapper' is updated.
+14:07:45 INFO  : Result from executing command 'getProjects': design_1_wrapper
+14:07:45 INFO  : Result from executing command 'getPlatforms': design_1_wrapper|C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/design_1_wrapper/export/design_1_wrapper/design_1_wrapper.xpfm
+14:13:00 INFO  : Hardware specification for platform project 'design_1_wrapper' is updated.
+14:13:14 INFO  : Result from executing command 'getProjects': design_1_wrapper
+14:13:14 INFO  : Result from executing command 'getPlatforms': design_1_wrapper|C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/design_1_wrapper/export/design_1_wrapper/design_1_wrapper.xpfm
+14:13:14 INFO  : Checking for BSP changes to sync application flags for project 'watch_app'...
+14:13:45 INFO  : The hardware specification used by project 'watch_app' is out of sync with the platform. Resource files extracted from the hardware specification will be updated.
+14:13:45 INFO  : The file 'C:\FPGA\FPGA_project\FPGA_watch_ver3\vitis\watch_app\_ide\bitstream\design_1_wrapper.bit' stored in project is removed.
+14:13:45 INFO  : The updated bitstream files are copied from platform to folder 'C:\FPGA\FPGA_project\FPGA_watch_ver3\vitis\watch_app\_ide\bitstream' in project 'watch_app'.
+14:13:45 INFO  : The file 'C:\FPGA\FPGA_project\FPGA_watch_ver3\vitis\watch_app\_ide\psinit\ps7_init.tcl' stored in project is removed.
+14:13:50 INFO  : The updated ps init files are copied from platform to folder 'C:\FPGA\FPGA_project\FPGA_watch_ver3\vitis\watch_app\_ide\psinit' in project 'watch_app'.
+14:13:51 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+14:13:51 INFO  : Jtag cable 'Digilent Zybo Z7 210351B7BBFCA' is selected.
+14:13:51 INFO  : 'jtag frequency' command is executed.
+14:13:51 INFO  : Context for 'APU' is selected.
+14:13:51 INFO  : System reset is completed.
+14:13:54 INFO  : 'after 3000' command is executed.
+14:13:54 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351B7BBFCA" && level==0 && jtag_device_ctx=="jsn-Zybo Z7-210351B7BBFCA-23727093-0"}' command is executed.
+14:13:56 INFO  : Device configured successfully with "C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/watch_app/_ide/bitstream/design_1_wrapper.bit"
+14:13:56 INFO  : Context for 'APU' is selected.
+14:13:56 INFO  : Hardware design and registers information is loaded from 'C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/design_1_wrapper/export/design_1_wrapper/hw/design_1_wrapper.xsa'.
+14:13:56 INFO  : 'configparams force-mem-access 1' command is executed.
+14:13:56 INFO  : Context for 'APU' is selected.
+14:13:56 INFO  : Sourcing of 'C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/watch_app/_ide/psinit/ps7_init.tcl' is done.
+14:13:57 INFO  : 'ps7_init' command is executed.
+14:13:57 INFO  : 'ps7_post_config' command is executed.
+14:13:57 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:13:57 INFO  : The application 'C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/watch_app/Debug/watch_app.elf' is downloaded to processor 'ps7_cortexa9_0'.
+14:13:57 INFO  : 'configparams force-mem-access 0' command is executed.
+14:13:57 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351B7BBFCA" && level==0 && jtag_device_ctx=="jsn-Zybo Z7-210351B7BBFCA-23727093-0"}
+fpga -file C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/watch_app/_ide/bitstream/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/design_1_wrapper/export/design_1_wrapper/hw/design_1_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/watch_app/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow C:/FPGA/FPGA_project/FPGA_watch_ver3/vitis/watch_app/Debug/watch_app.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+14:13:57 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+14:13:57 INFO  : 'con' command is executed.
+14:13:57 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+14:13:57 INFO  : Launch script is exported to file 'C:\FPGA\FPGA_project\FPGA_watch_ver3\vitis\watch_app_system\_ide\scripts\debugger_watch_app-default.tcl'
+15:16:43 INFO  : Launching XSCT server: xsct.bat -n  -interactive C:\FPGA\FPGA_project\FPGA_watch_ver3\vitis\temp_xsdb_launch_script.tcl
+15:19:44 ERROR : Timed out. 180 seconds have elapsed while waiting for XSCT server to launch.
+15:19:44 WARN  : xsct server communication channel is not established.

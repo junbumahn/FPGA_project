@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <spirit:component xmlns:xilinx="http://www.xilinx.com" xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <spirit:vendor>jun</spirit:vendor>
+  <spirit:vendor>xilinx.com</spirit:vendor>
   <spirit:library>user</spirit:library>
   <spirit:name>watch_top</spirit:name>
   <spirit:version>1.0</spirit:version>
@@ -244,7 +244,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>0816a23a</spirit:value>
+            <spirit:value>13986bfa</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -260,7 +260,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>0816a23a</spirit:value>
+            <spirit:value>13986bfa</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -282,6 +282,23 @@
     <spirit:ports>
       <spirit:port>
         <spirit:name>sw</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">3</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>btn</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
@@ -661,7 +678,7 @@
       <spirit:modelParameter xsi:type="spirit:nameValueTypeType" spirit:dataType="integer">
         <spirit:name>CNT_BIT</spirit:name>
         <spirit:displayName>Cnt Bit</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.CNT_BIT">32</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.CNT_BIT">31</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>SEC_BIT</spirit:name>
@@ -719,7 +736,7 @@
       <spirit:file>
         <spirit:name>watch_top.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_d468d347</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_69c0f3d2</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -760,7 +777,7 @@
     <spirit:parameter>
       <spirit:name>CNT_BIT</spirit:name>
       <spirit:displayName>Cnt Bit</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.CNT_BIT">32</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.CNT_BIT">31</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>SEC_BIT</spirit:name>
@@ -810,16 +827,16 @@
       <xilinx:displayName>watch_top_v1_0</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
       <xilinx:coreRevision>2</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2024-03-05T21:09:08Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2024-03-09T05:11:20Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2022.1</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="6f0949ea"/>
       <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="0c04c4c2"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="d0faca33"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="def283fa"/>
-      <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="683ab193"/>
-      <xilinx:checksum xilinx:scope="parameters" xilinx:value="8b49d74d"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="2b6b56f7"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="c7a2f5e7"/>
+      <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="06b1d009"/>
+      <xilinx:checksum xilinx:scope="parameters" xilinx:value="a60baa60"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>
 </spirit:component>

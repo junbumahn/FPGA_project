@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 module watch_top # (
-    parameter CNT_BIT = 32,
+    parameter CNT_BIT = 31,
 	parameter SEC_BIT = 6,
 	parameter MIN_BIT = 6,
 	parameter HOUR_BIT = 6,
@@ -10,7 +10,9 @@ module watch_top # (
 )
 (
     input [3:0]sw,  
+	input [3:0]btn,
     output [3:0]led,
+
 
 		//AXI ports
 		input wire  s00_axi_aclk,
@@ -36,6 +38,13 @@ module watch_top # (
 		input wire  s00_axi_rready
 );
 
+wire 			   						  w_run			;
+wire [CNT_BIT-1:0] 						  w_count_value	;
+wire 			   						  w_idle		;
+wire 			   						  w_running		;
+wire 			   						  w_done		;
+wire 									  w_pausing		;
+wire [SEC_BIT + MIN_BIT + HOUR_BIT -1: 0] w_time		;
 
 AXI4_Lite_IP_v1_0 #(
 		.CNT_BIT (CNT_BIT),
@@ -47,8 +56,13 @@ AXI4_Lite_IP_v1_0 #(
 )AXI4_Lite_IP_v1_0_inst
 (
     // Users to add ports here
-		.o_cnt_th(w_cnt_th),
-		.i_time(w_hour_min_sec),
+		.o_run			(w_run			)		,		
+		.o_cnt_th		(w_count_value	)		,
+		.i_idle			(w_idle			)		,
+		.i_running		(w_running		)		,
+		.i_done			(w_done			)		,
+		.i_pausing		(w_pausing		)		,
+		.i_time			(w_time			)		,
 		// User ports ends
 		// Do not modify the ports beyond this line
 
@@ -77,12 +91,26 @@ AXI4_Lite_IP_v1_0 #(
 		.s00_axi_rready(s00_axi_rready)
 );
 
-	wire [CNT_BIT - 1:0] w_cnt_th;
-    wire [SEC_BIT + MIN_BIT + HOUR_BIT -1:0]  w_hour_min_sec;
-	wire i_run_en = sw[3];
-    wire [SEC_BIT-1:0] o_sec;
-    wire [MIN_BIT-1:0] o_min;
-    wire [HOUR_BIT-1:0] o_hour;
+
+//capture the signal of buttons. These F/F were added due to instant button signal capturing error.
+reg r_stop		;	
+reg r_pause		;
+reg r_restart	;
+
+always @(posedge s00_axi_aclk) begin
+	if(!s00_axi_aresetn)begin
+		r_stop		<= 1'b0	;
+		r_pause		<= 1'b0	;
+		r_restart	<= 1'b0	;
+	end else begin
+		r_stop		<= btn[0]	;
+		r_pause		<= btn[1]	;
+		r_restart	<= btn[2]	;
+	end
+
+end
+
+
 
 watch_op
 #(
@@ -93,22 +121,26 @@ watch_op
 )
 u_watch_op
 (
-    .clk(s00_axi_aclk),
-    .reset_n(s00_axi_aresetn),
-	.i_run_en(i_run_en),
-    .i_cnt_th(w_cnt_th),
-    .o_sec(o_sec),
-    .o_min(o_min),
-    .o_hour(o_hour)
-
+    .clk			(s00_axi_aclk	)		,
+    .reset_n		(s00_axi_aresetn)		,
+	.i_run			(w_run			)		,		
+	.i_cnt_th		(w_count_value	)		,
+	.i_stop			(r_stop			)		,
+	.i_pause		(r_pause		)		,
+	.i_restart		(r_restart		)		,
+	.o_idle			(w_idle			)		,
+	.o_running		(w_running		)		,
+	.o_done			(w_done			)		,
+	.o_pausing		(w_pausing		)		,
+	.o_time			(w_time			)		
+	
 );
 
-assign led[0] = o_sec[0];
-assign led[1] = o_min[0];
-assign led[2] = o_hour[0];
+assign led[0] = w_time[0]; 	//sec change
+assign led[1] = w_time[6];	//min change
+assign led[2] = w_time[12];	//hour change
 assign led[3] = sw[3];
 
-assign w_hour_min_sec = {o_hour, o_min, o_sec};
 
 
 endmodule
